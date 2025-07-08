@@ -11,16 +11,19 @@ void main() async{
   runApp(const MyApp());
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
-              await _firestore
-                  .collection("cars")
-                  .doc("123456789")
-                  .collection("options")
-                  .doc()
-                  .set({
-                "navigation": true,
-                "color": "black",
-              });
-} 
+  // DocumentSnapshot : Firestore에서 사용하는 객체로, 특정 문서의 현재 데이터 상태를 나타낸다.
+  // Map<String, dynamic> : String(Key)과 dynamic(Value) 쌍의 맵으로 다룬다는 것을 명시해주고 있다.
+  DocumentSnapshot<Map<String, dynamic>> _data = await _firestore.collection("cars").doc("123456789").get();
+                Map<String, dynamic> _newData = {
+                  "brand": _data.data()!["brand"],
+                  "name": _data.data()!["name"],
+                  "price": 15000,
+                };
+  await _firestore
+                    .collection("cars")
+                    .doc("123456789")
+                    .update(_newData);
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
