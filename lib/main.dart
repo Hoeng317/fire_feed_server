@@ -11,14 +11,10 @@ void main() async{
   runApp(const MyApp());
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  DocumentSnapshot<Map<String, dynamic>> _data = await _firestore.collection("cars").doc("123456789").get();
-  Map<String, dynamic> _newData = {
-	  "brand": _data.data()!["brand"],
-	  "name": _data.data()!["name"],
-	  "price": _data.data()!["price"],
-	  "trim": "3.5 AWD",
-	  };
-  await _firestore.collection("cars").doc("123456789").set(_newData);
+
+  await _firestore.collection("cars").doc("123456789").update({
+                "trim": FieldValue.delete(),
+              });
 }
 
 class MyApp extends StatelessWidget {
