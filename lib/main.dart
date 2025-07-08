@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'firebase_options.dart';  // firebase_options.dart를 꼭 import 해야 함
 
 void main() async{
-   await Firebase.initializeApp(
+  WidgetsFlutterBinding.ensureInitialized(); // await 같은 비동기 초기화 작업을 하기 전에 반드시 호출해야 하는 코드 (플러터 바인딩 시스템)
+  await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(const MyApp());
-}
+
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  await _firestore.collection("cars").doc("123456789").set(
+                {
+                  "brand": "Genesis",
+                  "name": "G70",
+                  "price": 5000,
+                },
+  );
+} 
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
