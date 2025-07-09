@@ -12,6 +12,13 @@ FlutterFire CLI를 사용하면 Flutter 프로젝트에서 Firebase 설정을 �
 
 Firebase 연동을 시작하기 전, 다음 항목이 준비되어 있어야 함:
 
+## 🚀 IOS
+Windows에서는 iOS 앱을 실행하거나 빌드할 수 없음.
+오직 macOS에서만 Xcode와 함께 iOS Flutter 앱을 완성할 수 있음.
+따라서 iOS용 Firebase 연동을 실험하려면 mac이 필요함.
+
+```
+```
 - **Firebase CLI 설치 및 로그인**
 
 ```bash
