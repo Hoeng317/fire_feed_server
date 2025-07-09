@@ -1,13 +1,13 @@
 # 🔥 FlutterFire CLI를 이용한 Firebase 연동 튜토리얼
 
-FlutterFire CLI를 사용하면 Flutter 프로젝트에서 Firebase 설정을 각 플랫폼(Android, iOS, Web)에 맞게 자동으로 구성 가능  
-이 튜토리얼에서는 Firebase CLI와 FlutterFire CLI를 사용하여 Flutter 프로젝트에 Firebase를 연동하는 전체 과정을 안내
+FlutterFire CLI를 사용하면 Flutter 프로젝트에서 Firebase 설정을 각 플랫폼(Android, iOS, Web)에 맞게 자동으로 구성할 수 있음  
+이 튜토리얼에서는 Firebase CLI와 FlutterFire CLI를 사용하여 Flutter 프로젝트에 Firebase를 연동하는 전체 과정을 안내함
 
 ---
 
 ## ✅ 사전 준비 (Prerequisites)
 
-Firebase 연동을 시작하기 전, 다음 항목이 준비되어 있어야 합니다:
+Firebase 연동을 시작하기 전, 다음 항목이 준비되어 있어야 함:
 
 - **Firebase CLI 설치 및 로그인**
 
@@ -19,11 +19,11 @@ firebase login
 - **Flutter SDK 설치**
 
 공식 페이지에서 `flutter_windows_3.32.5-stable.zip` 다운로드 후 압축 해제  
-예: `C:\Android\flutter` 경로에 저장 (User 폴더명이 한글인 경우 추천 경로)
+예: `C:\Android\flutter` 경로에 저장함 (User 폴더명이 한글인 경우 추천 경로임)
 
 - **환경 변수 설정**
 
-시스템 환경 변수 `Path`에 다음 경로 추가:
+시스템 환경 변수 `Path`에 다음 경로 추가함:
 
 ```text
 C:\Android\flutter\bin
@@ -46,8 +46,8 @@ cd my_app
 
 ## 🛠 Android Studio 설치 및 SDK 설정
 
-- Android Studio 설치
-- 필수 컴포넌트 설치 (SDK Manager에서 확인 및 설치)
+- Android Studio 설치함
+- 필수 컴포넌트 설치 (SDK Manager에서 확인 및 설치함)
 
   - Android SDK Platform (API 35 이상)
   - SDK Command-line Tools
@@ -55,7 +55,7 @@ cd my_app
   - Platform-Tools
   - Android Emulator
 
-- 설치 확인 및 Emulator 실행
+- 설치 확인 및 Emulator 실행함
 
 ```bash
 flutter doctor --android-licenses
@@ -88,7 +88,7 @@ flutter doctor --android-licenses
 
 ## 🚀 Getting Started
 
-Firebase 프로젝트가 이미 생성되어 있어야 하며, 프로젝트 ID는 아래 명령어에서 사용됩니다.
+Firebase 프로젝트가 이미 생성되어 있어야 하며, 프로젝트 ID는 아래 명령어에서 사용됨
 
 ---
 
@@ -106,7 +106,7 @@ dart pub global activate flutterfire_cli
 flutterfire configure --project=YOUR_PROJECT
 ```
 
-> 위 명령을 실행하면 다음 작업이 자동으로 수행됩니다:
+> 위 명령을 실행하면 다음 작업이 자동으로 수행됨:
 >
 > - Android, iOS, Web 앱이 Firebase 프로젝트에 등록됨  
 > - `lib/firebase_options.dart` 파일이 생성됨
@@ -207,18 +207,18 @@ flutter run -d chrome
 ```
 
 > 필요 시:
->
-> ```bash
-> flutter config --enable-web
-> ```
+
+```bash
+flutter config --enable-web
+```
 
 ---
 
 ## ⚠️ 주의사항
 
-- `firebase_options.dart`가 반드시 존재해야 Firebase 초기화가 성공합니다.
-- Android의 경우 `google-services.json`, iOS의 경우 `GoogleService-Info.plist`가 필요합니다.
-- `flutterfire configure`를 다시 실행하면 기존 설정이 덮어씌워질 수 있습니다.
+- `firebase_options.dart`가 반드시 존재해야 Firebase 초기화가 성공함
+- Android의 경우 `google-services.json`, iOS의 경우 `GoogleService-Info.plist`가 필요함
+- `flutterfire configure`를 다시 실행하면 기존 설정이 덮어씌워질 수 있음
 
 ---
 
