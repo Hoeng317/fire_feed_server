@@ -127,7 +127,34 @@ flutterfire configure --project=YOUR_PROJECT
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^2.30.0
+  firebase_core: ^2.30.0 // 최신 버전은 pub.dev에서 확인 가능
+
+### 1. FlutterFire CLI 전역 설치
+
+```bash
+dart pub global activate flutterfire_cli
+```
+
+### 2. Firebase 프로젝트와 연동
+
+```bash
+flutterfire configure --project=YOUR_PROJECT
+```
+
+> 위 명령을 실행하면 다음 작업이 자동으로 수행됨:
+>
+> - Android, iOS, Web 앱이 Firebase 프로젝트에 등록됨  
+> - `lib/firebase_options.dart` 파일이 생성됨
+
+---
+
+## 🔧 Step 2: Firebase 초기화
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^2.30.0 // 최신 버전은 pub.dev에서 확인 가능
 ```
 
 ### main.dart
@@ -155,7 +182,7 @@ void main() async {
 ```yaml
 dependencies:
   firebase_auth: ^4.17.5
-  cloud_firestore: ^4.15.5
+  cloud_firestore: ^4.15.5 // 최신 버전은 pub.dev에서 확인 가능
 ```
 
 ### 예시 코드: 사용자 로그인 + Firestore에 사용자 정보 저장
