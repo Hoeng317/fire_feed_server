@@ -94,8 +94,6 @@ Firebase 프로젝트가 이미 생성되어 있어야 하며, 프로젝트 ID�
 
 ## ⚙️ Step 1: FlutterFire CLI 설치 및 실행
 
-FlutterFire CLI를 사용하여 각 플랫폼(Android, iOS, Web)의 Firebase 앱을 자동 생성하고 설정 파일을 생성할 수 있습니다.
-
 ### 1. FlutterFire CLI 전역 설치
 
 ```bash
@@ -117,18 +115,14 @@ flutterfire configure --project=YOUR_PROJECT
 
 ## 🔧 Step 2: Firebase 초기화
 
-`firebase_core` 패키지를 사용하여 Firebase를 Flutter 앱에서 초기화합니다.
-
-### 1. `pubspec.yaml`에 의존성 추가
-
 ```yaml
 dependencies:
   flutter:
     sdk: flutter
-  firebase_core: ^2.0.0
+  firebase_core: ^2.30.0
 ```
 
-### 2. `main.dart`에 Firebase 초기화 코드 추가
+### main.dart
 
 ```dart
 import 'package:flutter/material.dart';
@@ -146,30 +140,59 @@ void main() async {
 
 ---
 
-## ➕ Step 3: Firebase 플러그인 추가 (예: Authentication)
+## ➕ Step 3: Firebase Authentication & Firestore 연동
 
-### 1. `pubspec.yaml`에 의존성 추가
+### pubspec.yaml
 
 ```yaml
 dependencies:
-  firebase_auth: ^4.2.0
+  firebase_auth: ^4.17.5
+  cloud_firestore: ^4.15.5
 ```
 
-### 2. 예시 코드
+### 예시 코드: 사용자 로그인 + Firestore에 사용자 정보 저장
 
-```dart
-import 'package:firebase_auth/firebase_auth.dart';
+```void _tryLogin() async {
+      final id = idController.text.trim();
+      final pw = passwordController.text.trim();
 
-final FirebaseAuth _auth = FirebaseAuth.instance;
+      try {
+        final credential = await FirebaseAuth.instance
+            .signInWithEmailAndPassword(email: id, password: pw);
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomeScreen()),
+        );
+      } on FirebaseAuthException catch (e) {
+        String message = '로그인에 실패했습니다.';
+        if (e.code == 'user-not-found') {
+          message = '해당 이메일을 가진 사용자가 없습니다.';
+        } else if (e.code == 'wrong-password') {
+          message = '비밀번호가 틀렸습니다.';
+        }
+
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text('로그인 실패'),
+              content: Text(message),
+              actions: [
+                TextButton(onPressed: () => Navigator.of(context).pop(),
+                  child: const Text('확인'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    }
 ```
-
-👉 다른 플러그인은 [FlutterFire 공식 문서](https://firebase.flutter.dev/docs/overview)를 참조하세요.
 
 ---
 
-## 🧪 Step 4: 앱 실행 및 테스트
-
-Firebase 설정이 제대로 작동하는지 확인합니다:
+## 🧪 앱 실행 및 테스트
 
 ```bash
 flutter run
@@ -179,24 +202,23 @@ flutter run
 
 ## 🌐 Flutter Web 테스트
 
-Flutter Web 환경에서 앱 실행 확인:
-
 ```bash
 flutter run -d chrome
 ```
 
-> `flutter config --enable-web` 명령으로 Web 타깃 활성화 필요할 수 있음  
-> `localhost:xxxx`로 웹 앱 실행됨  
-> Chrome 개발자 경고는 무시 가능
+> 필요 시:
+>
+> ```bash
+> flutter config --enable-web
+> ```
 
 ---
 
 ## ⚠️ 주의사항
 
-- `flutterfire configure`를 다시 실행하면 설정이 덮어씌워질 수 있습니다.
-- `firebase_options.dart` 파일이 존재해야 초기화 성공
-- iOS는 `ios/Runner/Info.plist`에 설정을 수동 확인
-- Web은 `web/index.html`에 Firebase JS SDK 삽입 필요
+- `firebase_options.dart`가 반드시 존재해야 Firebase 초기화가 성공합니다.
+- Android의 경우 `google-services.json`, iOS의 경우 `GoogleService-Info.plist`가 필요합니다.
+- `flutterfire configure`를 다시 실행하면 기존 설정이 덮어씌워질 수 있습니다.
 
 ---
 
@@ -206,7 +228,8 @@ flutter run -d chrome
 my_app/
 ├── lib/
 │   ├── main.dart
-│   └── firebase_options.dart
+│   ├── firebase_options.dart
+│   └── auth_service.dart
 ├── pubspec.yaml
 └── ...
 ```
@@ -216,5 +239,5 @@ my_app/
 ## 📚 참고자료
 
 - [FlutterFire 공식 문서](https://firebase.flutter.dev)
-- [Firebase CLI 공식 문서](https://firebase.google.com/docs/cli)
-- [Flutter 공식 설치 가이드](https://docs.flutter.dev/get-started/install)
+- [Firebase Authentication 문서](https://firebase.google.com/docs/auth)
+- [Cloud Firestore 문서](https://firebase.google.com/docs/firestore)
