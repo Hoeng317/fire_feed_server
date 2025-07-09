@@ -105,7 +105,7 @@ dart pub global activate flutterfire_cli
 ### 2. Firebase 프로젝트와 연동
 
 ```bash
-flutterfire configure --project=railab-22ee9
+flutterfire configure --project=YOUR_PROJECT
 ```
 
 > 위 명령을 실행하면 다음 작업이 자동으로 수행됩니다:
