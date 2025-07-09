@@ -217,7 +217,8 @@ flutter config --enable-web
 ## ⚠️ 주의사항
 
 - `firebase_options.dart`가 반드시 존재해야 Firebase 초기화가 성공함
-- Android의 경우 `google-services.json`, iOS의 경우 `GoogleService-Info.plist`가 필요함
+- ```flutterfire configure --project=YOUR_PROJECT``` 시 자동으로 google-services.json 파일 생성
+- Android의 경우 `google-services.json`, iOS의 경우 `GoogleService-Info.plist`
 - `flutterfire configure`를 다시 실행하면 기존 설정이 덮어씌워질 수 있음
 
 ---
