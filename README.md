@@ -1,4 +1,4 @@
-# 🔥 FlutterFire CLI를 이용한 Firebase 연동 튜토리얼
+# 🔥 Flutter CLI를 이용한 Firebase 연동 튜토리얼
 
 FlutterFire CLI를 사용하면 Flutter 프로젝트에서 Firebase 설정을 각 플랫폼(Android, iOS, Web)에 맞게 자동으로 구성할 수 있음  
 이 튜토리얼에서는 Firebase CLI와 FlutterFire CLI를 사용하여 Flutter 프로젝트에 Firebase를 연동하는 전체 과정을 안내함
