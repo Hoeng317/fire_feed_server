@@ -13,3 +13,16 @@ Firebase 연동을 시작하기 전, 다음 항목이 준비되어 있어야 합
   ```bash
   npm install -g firebase-tools
   firebase login
+ Flutter SDK 설치 확인
+
+bash
+복사
+편집
+flutter --version
+ Flutter 프로젝트 생성 (또는 기존 프로젝트 사용)
+
+bash
+복사
+편집
+flutter create my_app
+cd my_app
