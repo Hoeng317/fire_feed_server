@@ -5,6 +5,9 @@ FlutterFire CLI를 사용하면 Flutter 프로젝트에서 Firebase 설정을 �
 
 ---
 
+<img width="896" height="491" alt="Image" src="https://github.com/user-attachments/assets/1fb677a5-762f-4741-a653-b1f0976274e6" />
+
+
 ## ✅ 사전 준비 (Prerequisites)
 
 Firebase 연동을 시작하기 전, 다음 항목이 준비되어 있어야 함:
