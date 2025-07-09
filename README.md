@@ -34,11 +34,10 @@ cd my_app
 ## 🚀 Getting Started
 
 Firebase 프로젝트가 이미 생성되어 있어야 하며, 프로젝트 ID는 아래 명령어에서 사용됩니다.  
-이 예시에서는 Firebase 프로젝트 ID가 `railab-22ee9`입니다.
 
 ---
 
-## ⚙️ 1단계: FlutterFire CLI 설치 및 실행
+## ⚙️ Step 1: FlutterFire CLI 설치 및 실행
 
 FlutterFire CLI를 사용하여 각 플랫폼(Android, iOS, Web)의 Firebase 앱을 자동 생성하고 설정 파일을 생성할 수 있습니다.
 
@@ -61,7 +60,7 @@ flutterfire configure --project=railab-22ee9
 
 ---
 
-## 🛠️ 2단계: Firebase 초기화
+## Step 2: Firebase 초기화
 
 `firebase_core` 패키지를 사용하여 Firebase를 Flutter 앱에서 초기화합니다.
 
@@ -146,7 +145,3 @@ my_app/
 
 ---
 
-## 📚 참고자료
-
-- [FlutterFire 공식 문서](https://firebase.flutter.dev)
-- [Firebase CLI 공식 문서](https://firebase.google.com/docs/cli)
