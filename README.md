@@ -53,13 +53,13 @@ flutter doctor
 - 해결: `flutter doctor --android-licenses`를 실행하여 라이센스 등록
 
 ## 🐬 Flutter Project 생성
-![Mac에서 Flutter Project 생성 단계 스크린샷1](image.png)
 - File -> New -> New Flutter Project
-![Mac에서 Flutter Project 생성 단계 스크린샷2](image-1.png)
+![Mac에서 Flutter Project 생성 단계 스크린샷1](image.png)
 - 왼쪽 Generators에 Flutter 선택 후 Flutter SDK 경로 설정 확인 후 Next
-![Mac에서 Flutter Project 생성 단계 스크린샷3](image-2.png)
+![Mac에서 Flutter Project 생성 단계 스크린샷2](image-1.png)
 - Project name 입력 후 Platforms에서 Android, Web, 필요한 경우 iOS 선택 후 Create
 (Web은 test할 때 사용하기 위함이다. iOS는 MacOS에서만 개발 가능하며 xCode, cocoapods 추가 설치가 필요하다.)
+![Mac에서 Flutter Project 생성 단계 스크린샷3](image-2.png)
 
 ---
 
