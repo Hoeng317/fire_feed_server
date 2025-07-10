@@ -63,9 +63,8 @@ flutter doctor
 
 ---
 
-## 🚀 Getting Started
+# 🚀 Getting Started
 
-Firebase 프로젝트가 이미 생성되어 있어야 하며, 프로젝트 ID는 아래 명령어에서 사용됨
 ## 🕹️ Step 0: Firebase 초기 설정
 1. [Firebase 홈페이지](https://firebase.google.com/?hl=ko)로 이동
 2. 오른쪽 상단에 'Go to console' 클릭
@@ -74,9 +73,10 @@ Firebase 프로젝트가 이미 생성되어 있어야 하며, 프로젝트 ID�
 5. Gemini 사용 설정 선택 후 계속
 6. Google 애널리틱스 사용 설정 선택 후 계속 (배포 시 애널리틱스를 이용해 무료 분석이 가능해 권장)
 7. Firebase를 관리할 구글 계정 선택 후 프로젝트 생성 클릭 -> 프로젝트 생성 완료
-
+- "앱에 Firebase를 추가하여 시작하기" 밑 Flutter(제일 오른쪽) 선택한 후에 1~3단계를 따라하면 된다. (밑에 자세히 설명)
 ![Firebase 프로젝트 생성 화면](image-3.png)
-"앱에 Firebase를 추가하여 시작하기" 밑 Flutter(제일 오른쪽) 선택한 후에 1~3단계를 따라하면 된다. (밑에 자세히 설명)
+
+
 ---
 
 ## ⚙️ Step 1: FlutterFire CLI 설치 및 실행
@@ -169,7 +169,7 @@ void main() async {
 
 ---
 
-## ➕ Step 3: Firebase Authentication & Firestore 연동
+## ➕ Step 3: Firebase Authentication & Firestore 빌드 추가
 
 ### 필요한 빌드 추가
 - `pub add firebase_auth` : Firebase Authentication 빌드 사용
@@ -182,22 +182,29 @@ dependencies:
 ```
 
 ### Firebase Authentication
-![Firebase Authentication 웹 화면](image-4.png)
+
 - 로그인 방법을 설정할 수 있다. (이메일/비밀번호, 전화번호, 소셜 로그인 등)
+![Firebase Authentication 웹 화면](image-4.png)
+- `createUserWithEmailAndPassword()` : 이메일과 비밀번호로 새로운 사용자 계정을 생성, 함수를 실행하면 하단 화면에 자동으로 추가된다.
 ![createUserWithEmailAndPassword](image-5.png)
-- `createUserWithEmailAndPassword()` : 이메일과 비밀번호로 새로운 사용자 계정을 생성, 함수를 실행하면 상단 화면에 자동으로 추가된다.
-코드 (e.code)	설명
-email-already-in-use	이미 다른 계정에서 사용 중인 이메일 주소
-invalid-email	이메일 형식이 잘못됨 (예: user@ 같은 형식 오류)
-operation-not-allowed	이메일/비밀번호 가입이 Firebase 프로젝트에서 비활성화되어 있음
-weak-password	비밀번호가 너무 약함 (보통 6자 미만)
+
+| 코드 (`e.code`)            | 설명                                                              |
+|---------------------------|-------------------------------------------------------------------|
+| `email-already-in-use`    | 이미 다른 계정에서 사용 중인 이메일 주소                          |
+| `invalid-email`           | 이메일 형식이 잘못됨 (예: `user@` 같은 형식 오류)                 |
+| `operation-not-allowed`   | 이메일/비밀번호 가입이 Firebase 프로젝트에서 비활성화되어 있음    |
+| `weak-password`           | 비밀번호가 너무 약함 (보통 6자 미만)                              |
+
 
 - `signInWithEmailAndPassword()` : 이메일과 비밀번호로 기존 사용자 로그인을 수행
-코드 (e.code)	설명
-user-not-found	해당 이메일로 가입된 계정이 없음
-wrong-password	비밀번호가 일치하지 않음
-invalid-email	이메일 형식 오류
-user-disabled	해당 계정이 비활성화됨 (관리자에 의해 차단 등)
+
+| 코드 (`e.code`)      | 설명                                                  |
+|----------------------|-------------------------------------------------------|
+| `user-not-found`     | 해당 이메일로 가입된 계정이 없음                     |
+| `wrong-password`     | 비밀번호가 일치하지 않음                             |
+| `invalid-email`      | 이메일 형식 오류                                     |
+| `user-disabled`      | 해당 계정이 비활성화됨 (관리자에 의해 차단 등)      |
+
 
 ---
 
